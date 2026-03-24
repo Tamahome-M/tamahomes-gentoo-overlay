@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit unpacker desktop
+inherit unpacker desktop xdg-utils
 
 MY_PN="${PN%-bin}"
 

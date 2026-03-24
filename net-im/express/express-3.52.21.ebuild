@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit unpacker desktop
+inherit unpacker desktop xdg-utils
 
 MY_PN="${PN%-bin}"
 
@@ -33,4 +33,14 @@ src_install() {
     doicon -s 512 usr/share/icons/hicolor/512x512/apps/express.png
     domenu usr/share/applications/express.desktop
     mv opt "${ED}" || die
+}
+
+pkg_postinst() {
+   xdg_desktop_database_update
+   xdg_icon_cache_update
+}
+
+pkg_postrm() {
+   xdg_desktop_database_update
+   xdg_icon_cache_update
 }

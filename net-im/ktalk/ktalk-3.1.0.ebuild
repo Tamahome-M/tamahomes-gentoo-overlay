@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit unpacker desktop
+inherit unpacker desktop xdg-utils
 
 MY_PN="${PN%-bin}"
 
-DESCRIPTION="eXpress"
-HOMEPAGE="https://express.ms/"
-SRC_URI="https://updates.express.ms/desktop/eXpress_${PV}_amd64.deb"
+DESCRIPTION="Толк"
+HOMEPAGE="https://kontur.ru/talk"
+SRC_URI="https://st.ktalk.host/ktalk-app/linux/ktalk${PV}amd64.deb"
 
 SLOT="0"
 KEYWORDS="~amd64"
@@ -25,13 +25,13 @@ S="${WORKDIR}"
 
 src_prepare() {
     default
-    gunzip usr/share/doc/lens/changelog.gz
+    gunzip usr/share/doc/ktalk/changelog.gz
 }
 
 src_install() {
-    doicon usr/share/icons/hicolor/512x512/apps/express.png
-    doicon -s 512 usr/share/icons/hicolor/512x512/apps/express.png
-    domenu usr/share/applications/express.desktop
+    doicon usr/share/icons/hicolor/512x512/apps/ktalk.png
+    doicon -s 512 usr/share/icons/hicolor/512x512/apps/ktalk.png
+    domenu usr/share/applications/ktalk.desktop
     mv opt "${ED}" || die
 }
 
